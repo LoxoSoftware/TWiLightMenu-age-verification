@@ -20,7 +20,7 @@ include $(DEVKITARM)/ds_rules
 UNIVERSAL	:=	../../universal
 TARGET		:=	romsel_dsimenutheme
 BUILD		:=	build
-SOURCES		:=	source $(UNIVERSAL)/arm7/source $(UNIVERSAL)/sdmmc/arm7/source
+SOURCES		:=	source source/age_rec $(UNIVERSAL)/arm7/source $(UNIVERSAL)/sdmmc/arm7/source
 INCLUDES	:=	include build $(UNIVERSAL)/include $(UNIVERSAL)/arm7/include $(UNIVERSAL)/sdmmc/arm7/include
 
 #---------------------------------------------------------------------------------

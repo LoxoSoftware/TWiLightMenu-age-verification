@@ -49,6 +49,8 @@
 
 #include "graphics/queueControl.h"
 
+#include "age_rec/age_rec.h"
+
 #define SCREEN_COLS 32
 #define ENTRIES_PER_SCREEN 15
 #define ENTRIES_START_ROW 3
@@ -3887,6 +3889,17 @@ std::string browseForFile(const std::vector<std::string_view> extensionList) {
 					settingsChanged = false;
 					return "null";
 				} else {
+
+					switch(age_recognition())
+					{
+						case FR_AGE_UNKNOWN:
+						case FR_AGE_CHILD:
+						case FR_AGE_TEEN:
+							return "null";
+						case FR_AGE_ADULT:
+							break;
+					}
+
 					if (isValid[CURPOS] && !isTwlm[CURPOS]) {
 						loadPerGameSettings(dirContents[scrn].at(CURPOS + PAGENUM * 40).name);
 					}

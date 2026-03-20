@@ -34,6 +34,8 @@
 #include "common/arm7status.h"
 #include "common/picoLoader7.h"
 
+#include "age_rec/i2c_handler.h"
+
 void my_touchInit();
 void my_installSystemFIFO(void);
 
@@ -165,6 +167,8 @@ int main() {
 
 	installSoundFIFO();
 	my_installSystemFIFO();
+
+	fifoSetValue32Handler(FIFO_CAMERA, i2cFifoHandler, NULL);
 
 	irqSet(IRQ_VCOUNT, VcountHandler);
 	irqSet(IRQ_VBLANK, VblankHandler);
